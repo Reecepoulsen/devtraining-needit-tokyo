@@ -15,7 +15,9 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition/>
+        <filter_condition table="x_58872_needit_needit">u_requested_for_emailVALCHANGES^EQ<item endquery="false" field="u_requested_for_email" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
         <is_rest>false</is_rest>
         <message/>
         <name>Email Address Syntax Validate</name>
@@ -30,7 +32,8 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	var isEmail = validateEmailAddress(current.u_requested_for_email);
-	
+	gs.addInfoMessage("Great Email Address Reese");
+
 	if (!isEmail) {
 		gs.addErrorMessage(current.u_requested_for_email + " is not a valid email address. You must provide a valid email address.");
 		current.setAbortAction(true);
